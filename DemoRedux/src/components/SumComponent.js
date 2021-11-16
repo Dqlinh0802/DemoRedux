@@ -10,7 +10,8 @@ class SumComponent extends Component{
         super(props);
         this.state={
             num1: 0, 
-            num2: 0
+            num2: 0,
+            tong: 0
         };
         this.tinhTong = this.tinhTong.bind(this);
     }
@@ -23,6 +24,7 @@ class SumComponent extends Component{
             num2, 
             type: 'SUM'
         });
+        this.setState({tong: Number(this.state.num1) + Number(this.state.num2)});
     }
 
     render(){
