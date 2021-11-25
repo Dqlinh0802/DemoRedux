@@ -1,9 +1,29 @@
 import React, {Component} from "react";
 import {View, Text, TouchableOpacity} from 'react-native'
 import styles from "../styles/boxNumber";
+import { connect } from 'react-redux';
 
 
-export default class TouchableOpacitys extends Component {
+
+class TouchableOpacitys extends Component {
+    
+    // constructor(props){
+    //     super(props);
+    //     this.state={
+    //         num: 0
+    //     };
+    //     this.clickBT = this.clickBT.bind(this);
+    // }
+
+    // clickBT() {
+    //     const num = this.state;
+    //     this.props.dispatch({
+    //         num,
+    //         type: 'TINHTOAN'
+    //     });
+    // }
+
+
     render(){
         return(
             <View style={{flexDirection: 'row'}}>
@@ -82,3 +102,4 @@ export default class TouchableOpacitys extends Component {
         )
     }
 }
+export default connect()(TouchableOpacitys);
