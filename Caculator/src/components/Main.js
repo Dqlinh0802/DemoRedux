@@ -21,8 +21,7 @@ class Main extends Component{
         return(
             <View>
                 <Text style={{textAlign: 'center', fontSize: 40, fontWeight: 'bold', marginBottom: 20, marginTop: 20}}>Caculator</Text>
-                
-                <Text style={styles.input}>
+                <Text style={[styles.input, {marginBottom: 0, height: 70, lineHeight: 70, fontSize: 30}]}>
                     {this.props.myValue}
                 </Text>
 
