@@ -1,16 +1,17 @@
 import React, {Component, useState} from "react";
 import {View, Text, TouchableOpacity} from 'react-native'
 import styles from "../styles/boxNumber";
-import { connect } from 'react-redux';
 
 
-class TouchableOpacitys extends Component {
+export default class TouchableOpacitys extends Component {
     
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
-            resultText: ""
+            resultText: "",
+            myValue: ""
         };
+        this.buttonResult = this.buttonResult.bind(this);
     }
 
     buttonPress(text) {
@@ -36,9 +37,20 @@ class TouchableOpacitys extends Component {
         })
     }
 
+    buttonResult() {
+        console.log(this.state.resultText);
+        let text = eval(this.state.resultText);
+        this.setState({
+            myValue: text,
+        });
+    }
+
     render(){
         return(
             <View>
+                <Text style={[styles.input, {marginBottom: 0, height: 70, lineHeight: 70, fontSize: 30}]}>
+                    {this.state.myValue}
+                </Text>
                 <Text style={styles.input}>
                     {this.state.resultText}
                 </Text>
@@ -126,7 +138,7 @@ class TouchableOpacitys extends Component {
                                 <Text style={styles.num}>+</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={[styles.box, {width: '90%', height: 200, backgroundColor: '#cf7961' }]}
-                            >
+                            onPress={() => this.buttonResult()}>
                                 <Text style={[styles.num, 
                                     {lineHeight: 200, height: 200, fontSize: 45}]}>
                                     =
@@ -138,4 +150,4 @@ class TouchableOpacitys extends Component {
         )
     }
 }
-export default connect()(TouchableOpacitys);
+// export default connect()(TouchableOpacitys);
