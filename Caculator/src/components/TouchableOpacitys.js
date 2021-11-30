@@ -43,6 +43,7 @@ export default class TouchableOpacitys extends Component {
         this.setState({
             myValue: text,
         });
+        this.buttonClear();
     }
 
     render(){
