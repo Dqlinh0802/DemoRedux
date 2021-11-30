@@ -41,7 +41,7 @@ export default class TouchableOpacitys extends Component {
         console.log(this.state.resultText);
         let text = eval(this.state.resultText);
         this.setState({
-            myValue: text,
+            myValue: this.state.resultText + "=" + text,
         });
         this.buttonClear();
     }
@@ -64,8 +64,8 @@ export default class TouchableOpacitys extends Component {
                                     <Text style={styles.num}>C</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={[styles.box, {backgroundColor: '#DCA394'}]}
-                                onPress={() => this.buttonPress("x")}>
-                                    <Text style={styles.num}>X</Text>
+                                onPress={() => this.buttonPress("*")}>
+                                    <Text style={styles.num}>*</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={[styles.box, {backgroundColor: '#DCA394'}]}
                                 onPress={() => this.buttonPress("/")}>
