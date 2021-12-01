@@ -30,11 +30,23 @@ export default class TouchableOpacitys extends Component {
         })
     }
 
+    validate() {
+        const text = this.state.resultText;
+        switch(text.slice(-1)) {
+            case "+": 
+            case "-": 
+            case "*": 
+            case "/": 
+                return false;
+        }
+        return true;
+    }
+
     buttonResult() {
         console.log(this.state.resultText);
         let text = eval(this.state.resultText);
         this.setState({
-            myValue: this.state.resultText + "=" + text,
+            myValue: this.state.resultText + " = " + text,
         });
         this.buttonClear();
     }
@@ -42,7 +54,7 @@ export default class TouchableOpacitys extends Component {
     buttonPress(text) {
         console.log(text)
         if(text == '='){
-            return this.buttonResult();
+            return this.validate() && this.buttonResult();
         }
         if(text == 'C'){
             return this.buttonClear();
